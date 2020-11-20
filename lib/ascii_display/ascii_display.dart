@@ -47,7 +47,7 @@ class AsciiDisplay {
   void _clear() => print("\x1B[2J\x1B[0;0H");
 
   run() {
-    _timer = Timer.periodic(Duration(seconds: secondsUpdate), _handleTimer);
+    _timer = Timer.periodic(Duration(milliseconds :secondsUpdate), _handleTimer);
     _handleTimer(_timer);
   }
 
