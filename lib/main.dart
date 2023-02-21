@@ -42,7 +42,7 @@ main() {
   }, stepCount: 7));
 
   display.addSurface(AnimdatedSurface(22, 15, 8, 2, (int step) {
-    String preresult;
+    String preresult = "";
     if (step == 5) {
       preresult = "  ~~~~~~";
     }

@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'ascii_surfaces.dart';
@@ -34,7 +33,7 @@ class AsciiDisplay {
     return primer;
   }
 
-  Timer _timer;
+  late Timer _timer;
 
   AsciiDisplay(this.width, this.height, this.secondsUpdate);
 
@@ -47,7 +46,8 @@ class AsciiDisplay {
   void _clear() => print("\x1B[2J\x1B[0;0H");
 
   run() {
-    _timer = Timer.periodic(Duration(milliseconds :secondsUpdate), _handleTimer);
+    _timer =
+        Timer.periodic(Duration(milliseconds: secondsUpdate), _handleTimer);
     _handleTimer(_timer);
   }
 
@@ -56,8 +56,8 @@ class AsciiDisplay {
     _display();
   }
 
-  List<StaticSurface> staticSurfaces = List();
-  List<AnimdatedSurface> animatedSurfaces = List();
+  List<StaticSurface> staticSurfaces = [];
+  List<AnimdatedSurface> animatedSurfaces = [];
 
   addSurface(AsciiSurface surface) {
     if (surface is StaticSurface) {

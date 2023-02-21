@@ -1,0 +1,14 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "ascii_clock",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    }
+  ],
+  "generated": "2023-02-21T15:29:57.800158Z",
+  "generator": "pub",
+  "generatorVersion": "2.19.0"
+}

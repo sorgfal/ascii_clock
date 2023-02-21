@@ -1,16 +1,15 @@
-
-
 import 'dart:io';
 
 class StaticSurface implements AsciiSurface {
-  final x, y, width, height;
+  final int x, y, width, height;
   final List<String> lines;
 
-  StaticSurface(this.x, this.y, this.width, this.height, {this.lines});
+  StaticSurface(this.x, this.y, this.width, this.height, {required this.lines});
   List<List<String>> draw() {
     if (lines != null) {
       return lines.map((e) => e.split('')).toList();
     }
+    return [];
   }
 
   static StaticSurface initFromFile(
@@ -29,7 +28,7 @@ class StaticSurface implements AsciiSurface {
 
 class AnimdatedSurface implements AsciiSurface {
   final int stepCount;
-  final x, y, width, height;
+  final int x, y, width, height;
   final AnimdatedSurfaceBuilder builder;
 
   int _counter = 0;
@@ -40,7 +39,9 @@ class AnimdatedSurface implements AsciiSurface {
     String symbols = _build();
     List<List<String>> result = [];
     for (var i = 0; i < height; i++) {
-      result.add(symbols.split('').sublist(i * width, (i + 1) * width));
+      result.add(symbols
+          .split('')
+          .sublist((i * width).toInt(), ((i + 1) * width).toInt()));
     }
     return result;
   }
